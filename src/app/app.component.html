@@ -1,0 +1,15 @@
+<h1>Items</h1>
+
+<form #itemForm="ngForm" (ngSubmit)="onAddItem()">
+  <label>New Item
+    <input name="item" ngModel type="text">
+  </label>
+  <button>Add Item</button>
+</form>
+
+<ul>
+  <li *ngFor="let item of items; index as i">
+    {{ item }}
+    <button (click)="onDelete(i)">X</button>
+  </li>
+</ul>
