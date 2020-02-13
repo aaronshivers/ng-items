@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
 import { v1 as uuid } from 'uuid';
-
-interface Item {
-  id: string;
-  item: string;
-}
+import { Item } from './item';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -18,15 +15,15 @@ export class ItemService {
   }
 
   // make items available publicly
-  getItems(): Item[] {
-    return this.items;
+  getItems(): Observable<Item[]> {
+    return of(this.items);
   }
 
   // create item, save data, return id
-  createItem(item: string): string {
+  createItem(text: string): string {
     const id = uuid();
 
-    this.items.push({ id, item });
+    this.items.push({ id, text });
 
     this.saveItems();
 

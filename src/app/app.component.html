@@ -2,14 +2,14 @@
 
 <form #itemForm="ngForm" (ngSubmit)="onAddItem()">
   <label>New Item
-    <input name="item" ngModel type="text">
+    <input name="text" ngModel type="text">
   </label>
   <button>Add Item</button>
 </form>
 
 <ul>
-  <li *ngFor="let item of items; index as i">
-    {{ item }}
+  <li *ngFor="let item of items$ | async; index as i">
+    {{ item.text }}
     <button (click)="onDelete(i)">X</button>
   </li>
 </ul>
