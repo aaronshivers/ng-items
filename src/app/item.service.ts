@@ -30,11 +30,21 @@ export class ItemService {
     return id;
   }
 
+  // delete item
   deleteItem(id: string): void {
-    const itemIndex = this.items.findIndex(item => item.id === id);
+    const itemIndex = this.getItemIndex(id);
 
     if (itemIndex >= 0) {
       this.items.splice(itemIndex, 1);
+      this.saveItems();
+    }
+  }
+
+  toggleCompleted(id: string): void {
+    const itemIndex = this.getItemIndex(id);
+
+    if (itemIndex >= 0) {
+      this.items[itemIndex].completed = !this.items[itemIndex].completed;
       this.saveItems();
     }
   }
@@ -51,12 +61,8 @@ export class ItemService {
     localStorage.setItem('items', itemsJSON);
   }
 
-  toggleCompleted(id: string) {
-    const itemIndex = this.items.findIndex(item => item.id === id);
-
-    if (itemIndex >= 0) {
-      this.items[itemIndex].completed = !this.items[itemIndex].completed;
-      this.saveItems();
-    }
+  // get the item index
+  private getItemIndex(id: string): number {
+    return this.items.findIndex(item => item.id === id);
   }
 }

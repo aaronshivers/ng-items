@@ -31,6 +31,10 @@
   align-items: center;
 }
 
+.items__text {
+  cursor: pointer;
+}
+
 .items__button {
   font-family: inherit;
   font-weight: bold;
