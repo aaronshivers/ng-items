@@ -23,7 +23,7 @@ export class ItemService {
   createItem(text: string): string {
     const id = uuid();
 
-    this.items.push({ id, text });
+    this.items.push({ id, text, completed: false });
 
     this.saveItems();
 
@@ -49,5 +49,14 @@ export class ItemService {
   private saveItems(): void {
     const itemsJSON = JSON.stringify(this.items);
     localStorage.setItem('items', itemsJSON);
+  }
+
+  toggleCompleted(id: string) {
+    const itemIndex = this.items.findIndex(item => item.id === id);
+
+    if (itemIndex >= 0) {
+      this.items[itemIndex].completed = !this.items[itemIndex].completed;
+      this.saveItems();
+    }
   }
 }

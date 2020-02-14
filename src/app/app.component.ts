@@ -22,7 +22,6 @@ export class AppComponent {
 
   onAddItem(): void {
     this.item = this.itemForm.value.text;
-    // this.items.push(this.item);
 
     this.itemService.createItem(this.item);
 
@@ -36,5 +35,9 @@ export class AppComponent {
   // getItems items
   private getItems(): void {
     this.items$ = this.itemService.getItems();
+  }
+
+  onComplete(id: string) {
+    this.itemService.toggleCompleted(id);
   }
 }

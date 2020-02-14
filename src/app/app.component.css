@@ -1,3 +1,7 @@
+.completed {
+  text-decoration: line-through;
+}
+
 .items__form {
   display: flex;
   flex-direction: row;
