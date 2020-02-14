@@ -1,8 +1,8 @@
 {
   "name": "ng-items",
   "short_name": "ng-items",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "theme_color": "#DC143C",
+  "background_color": "#F5F5F5",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
