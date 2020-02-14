@@ -30,6 +30,15 @@ export class ItemService {
     return id;
   }
 
+  deleteItem(id: string): void {
+    const itemIndex = this.items.findIndex(item => item.id === id);
+
+    if (itemIndex >= 0) {
+      this.items.splice(itemIndex, 1);
+      this.saveItems();
+    }
+  }
+
   // load existing items from localStorage
   private loadItems(): void {
     const itemsJSON = localStorage.getItem('items');

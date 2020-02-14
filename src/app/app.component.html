@@ -1,15 +1,13 @@
 <h1>Items</h1>
 
-<form #itemForm="ngForm" (ngSubmit)="onAddItem()">
-  <label>New Item
-    <input name="text" ngModel type="text">
-  </label>
-  <button>Add Item</button>
+<form class="items__form" #itemForm="ngForm" (ngSubmit)="onAddItem()">
+  <input class="items__input" name="text" ngModel type="text" placeholder="New Item...">
+  <button class="items__button items__button--add">Add Item</button>
 </form>
 
-<ul>
-  <li *ngFor="let item of items$ | async; index as i">
-    {{ item.text }}
-    <button (click)="onDelete(i)">X</button>
+<ul class="items">
+  <li class="items__list-item" *ngFor="let item of items$ | async; index as i">
+    <span class="items__text">{{ item.text }}</span>
+    <button class="items__button items__button--delete" (click)="onDelete(item.id)">X</button>
   </li>
 </ul>

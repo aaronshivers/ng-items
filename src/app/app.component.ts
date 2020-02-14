@@ -29,8 +29,8 @@ export class AppComponent {
     this.itemForm.resetForm();
   }
 
-  onDelete(i: number) {
-    // this.items.splice(i, 1);
+  onDelete(id: string) {
+    this.itemService.deleteItem(id);
   }
 
   // getItems items
