@@ -1,13 +1,28 @@
-<h1>Items</h1>
+<section class="container">
+  <h1 class="title">Items</h1>
 
-<form class="items__form" #itemForm="ngForm" (ngSubmit)="onAddItem()">
-  <input class="items__input" name="text" ngModel type="text" placeholder="New Item...">
-  <button class="items__button items__button--add">Add Item</button>
-</form>
+  <form class="items__form" #itemForm="ngForm" (ngSubmit)="onAddItem()">
+    <input
+      class="items__input"
+      name="text"
+      ngModel
+      type="text"
+      placeholder="New Item...">
+    <button class="items__button items__button--add">Add Item</button>
+  </form>
 
-<ul class="items">
-  <li class="items__list-item" *ngFor="let item of items$ | async; index as i">
-    <span class="items__text" [ngClass]="item.completed ? 'completed' : null" (click)="onComplete(item.id)">{{ item.text }}</span>
-    <button class="items__button items__button--delete" (click)="onDelete(item.id)">X</button>
-  </li>
-</ul>
+  <ul class="items">
+    <li
+      class="items__list-item"
+      *ngFor="let item of items$ | async; index as i">
+      <span
+        class="items__text"
+        [ngClass]="item.completed ? 'completed' : null"
+        (click)="onComplete(item.id)">{{ item.text }}</span>
+      <button
+        class="items__button items__button--delete"
+        (click)="onDelete(item.id)">X
+      </button>
+    </li>
+  </ul>
+</section>

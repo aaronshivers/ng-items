@@ -1,8 +1,18 @@
+.container {
+  margin: 4rem 3rem;
+}
+
+.title {
+  margin: 2rem 0;
+}
+
 .completed {
+  color: #444444;
   text-decoration: line-through;
 }
 
 .items__form {
+  margin: 2rem 0;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -14,7 +24,7 @@
   border: 3px solid black;
   padding: 1rem;
   margin-right: 1rem;
-  flex-grow: 2;
+  flex-grow: 1;
   outline: none;
 }
 
@@ -49,6 +59,7 @@
 
 .items__button--add {
   background-color: darkseagreen;
+  justify-self: end;
 }
 
 .items__button--add:hover {

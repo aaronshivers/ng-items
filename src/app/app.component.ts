@@ -12,7 +12,6 @@ import { Item } from './item';
 export class AppComponent {
   @ViewChild('itemForm', { static: false }) itemForm: NgForm;
   items$: Observable<Item[]>;
-  item = '';
 
   constructor(
     private itemService: ItemService,
@@ -21,9 +20,11 @@ export class AppComponent {
   }
 
   onAddItem(): void {
-    this.item = this.itemForm.value.text;
+    const text = this.itemForm.value.text;
 
-    this.itemService.createItem(this.item);
+    if (text) {
+      this.itemService.createItem(text);
+    }
 
     this.itemForm.resetForm();
   }
@@ -32,12 +33,12 @@ export class AppComponent {
     this.itemService.deleteItem(id);
   }
 
+  onComplete(id: string) {
+    this.itemService.toggleCompleted(id);
+  }
+
   // getItems items
   private getItems(): void {
     this.items$ = this.itemService.getItems();
-  }
-
-  onComplete(id: string) {
-    this.itemService.toggleCompleted(id);
   }
 }

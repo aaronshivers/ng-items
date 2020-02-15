@@ -20,14 +20,12 @@ export class ItemService {
   }
 
   // create item, save data, return id
-  createItem(text: string): string {
-    const id = uuid();
+  createItem(text: string): void {
+    const item = { id: uuid(), text, completed: false };
 
-    this.items.push({ id, text, completed: false });
+    this.items.push(item);
 
     this.saveItems();
-
-    return id;
   }
 
   // delete item
