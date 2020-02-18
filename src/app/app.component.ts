@@ -10,6 +10,7 @@ import { Item } from './item';
   styleUrls: [ './app.component.css' ],
 })
 export class AppComponent {
+  title = 'Items';
   @ViewChild('itemForm', { static: false }) itemForm: NgForm;
   items$: Observable<Item[]>;
 
