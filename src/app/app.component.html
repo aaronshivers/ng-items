@@ -1,26 +1,26 @@
 <section class="container">
   <h1 class="title">Items</h1>
 
-  <form class="items__form" #itemForm="ngForm" (ngSubmit)="onAddItem()">
+  <form class="form" #itemForm="ngForm" (ngSubmit)="onAddItem()">
     <input
-      class="items__input"
+      class="form__input"
       name="text"
       ngModel
       type="text"
       placeholder="New Item...">
-    <button class="items__button items__button--add">ADD ITEM</button>
+    <button class="button form__button">ADD ITEM</button>
   </form>
 
-  <ul class="items">
+  <ul class="list">
     <li
-      class="items__list-item"
+      class="list__item"
       *ngFor="let item of items">
       <span
-        class="items__text"
+        class="item__text"
         [ngClass]="item.completed ? 'completed' : null"
         (click)="onComplete(item.id)">{{ item.text }}</span>
       <button
-        class="items__button items__button--delete"
+        class="button item__button"
         (click)="onDelete(item.id)">X
       </button>
     </li>
