@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { v1 as uuid } from 'uuid';
 import { Item } from './item';
-import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
