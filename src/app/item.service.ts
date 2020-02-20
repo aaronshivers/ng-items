@@ -15,8 +15,8 @@ export class ItemService {
   }
 
   // make items available publicly
-  getItems(): Observable<Item[]> {
-    return of(this.items);
+  getItems() {
+    return this.items;
   }
 
   // create item, save data, return id

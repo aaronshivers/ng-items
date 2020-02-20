@@ -12,7 +12,7 @@ import { Item } from './item';
 export class AppComponent {
   title = 'Items';
   @ViewChild('itemForm', { static: false }) itemForm: NgForm;
-  items$: Observable<Item[]>;
+  items: Item[];
 
   constructor(
     private itemService: ItemService,
@@ -40,6 +40,6 @@ export class AppComponent {
 
   // getItems items
   private getItems(): void {
-    this.items$ = this.itemService.getItems();
+    this.items = this.itemService.getItems();
   }
 }
